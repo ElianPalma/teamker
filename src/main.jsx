@@ -1,14 +1,20 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import favicon from './assets/favicon.png'
+import { locale } from './copyContext.js'
 
-const icon = document.querySelector('link[rel="icon"]') || document.head.appendChild(Object.assign(document.createElement('link'), { rel: 'icon', type: 'image/png' }))
-icon.href = favicon
-
-createRoot(document.getElementById('root')).render(
+const root = document.getElementById('root')
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
+
+// El HTML ya llega generado (prerender). Si es del mismo idioma, React lo "hidrata" sin repintar.
+if (root.hasChildNodes() && root.dataset.locale === locale) {
+  hydrateRoot(root, app)
+} else {
+  root.textContent = ''
+  createRoot(root).render(app)
+}

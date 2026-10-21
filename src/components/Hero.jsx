@@ -26,14 +26,13 @@ export default function Hero() {
           as="h1"
           text={t.hero.title}
           highlightFrom={t.hero.highlightFrom}
-          delay={0.1}
-          stagger={0.09}
+          instant
           className="text-[clamp(3rem,9vw,6.5rem)] font-bold leading-[0.98] tracking-[-0.035em] text-ink-900"
         />
 
         <motion.p
-          initial={{ opacity: 0, y: 16, filter: 'blur(6px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.9, ease: EASE }}
           className="mx-auto mt-7 max-w-2xl text-[clamp(1.15rem,2.2vw,1.6rem)] leading-snug text-ink-700"
         >
@@ -41,7 +40,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8, ease: EASE }}
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
@@ -54,14 +53,14 @@ export default function Hero() {
             {t.hero.trial}
           </ButtonLink>
         </motion.div>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9, duration: 0.8 }} className="mt-4 text-[15px] text-ink-500">
+        <motion.p initial={false} animate={{ opacity: 1 }} transition={{ delay: 0.9, duration: 0.8 }} className="mt-4 text-[15px] text-ink-500">
           {t.hero.note}
         </motion.p>
       </div>
 
       <div className="relative mx-auto mt-16 max-w-6xl px-4 pb-24 md:mt-20 md:px-8" style={{ perspective: 1400 }}>
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1.2, ease: EASE }}
         >
@@ -73,7 +72,7 @@ export default function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />              </div>
               <picture>
                 <source media="(max-width: 640px)" srcSet={heroMobile} />
-                <img src={hero} alt={t.hero.screenAlt} className="block w-full" width="1353" height="612" />
+                <img src={hero} alt={t.hero.screenAlt} className="block w-full" width="1353" height="612" fetchPriority="high" decoding="async" />
               </picture>
             </div>
 

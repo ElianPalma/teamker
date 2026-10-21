@@ -1,6 +1,6 @@
 # Teamkers · landing
 
-Landing de Teamkers hecha con Vite, React, Tailwind 4 y Motion. El build genera un único `dist/index.html` autocontenido (imágenes y fuentes incluidas) que se abre directamente en el navegador o se sube tal cual a cualquier hosting.
+Landing de Teamkers hecha con Vite, React, Tailwind 4 y Motion. El build genera la carpeta `dist/` con una página ya renderizada por idioma (`/`, `/mx/`, `/en/`, `/pt/`), los archivos en `dist/assets/` y `sitemap.xml`, `robots.txt` y `llms.txt`. Para verla, usa `npm run preview` (abrir `dist/index.html` con doble clic ya no funciona).
 
 ## Arrancar
 
@@ -9,11 +9,14 @@ npm install
 npm run dev
 ```
 
-Build final:
+Build final y vista previa del build:
 
 ```bash
 npm run build
+npm run preview
 ```
+
+En Netlify, `netlify.toml` ya indica el comando de build y la carpeta `dist`. Cuando la web pase al dominio definitivo, cambia `SITE_URL` en `netlify.toml` (lo usan la URL canónica, `hreflang`, el sitemap y los datos estructurados).
 
 ## Dónde se cambia cada cosa
 
@@ -25,12 +28,14 @@ npm run build
 | Tramos y precios de la calculadora | `src/pricing.js` |
 | Enlaces de demo, prueba, WhatsApp, email y teléfono | `src/config.js` |
 | Colores y tipografía | `src/index.css` (`@theme`) |
+| SEO, datos estructurados, sitemap y `llms.txt` | `scripts/prerender.js` |
+| Imagen al compartir en redes | `public/og.jpg` (1200×630) |
 
 Los tres ficheros de idioma tienen las mismas claves; si se añade un texto en uno, hay que añadirlo en los otros dos.
 
 ## Idiomas
 
-Se elige con `?lang=`: `es` (España), `mx` (México, mismo texto que España), `en` y `pt`. Sin parámetro, se usa el idioma del navegador y, si no es inglés ni portugués, español. Hay selector en la cabecera (ES · EN · PT) y en el pie.
+Cada idioma tiene su URL: `/` (España), `/mx/` (México, mismo texto que España), `/en/` y `/pt/`. Los enlaces antiguos con `?lang=` siguen funcionando. Ya no se cambia el idioma automáticamente según el navegador, para que Google indexe cada versión en su URL. Hay selector en la cabecera (ES · EN · PT) y en el pie.
 
 ## Pendiente antes de publicar
 

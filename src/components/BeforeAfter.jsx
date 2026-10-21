@@ -20,11 +20,14 @@ function Before() {
             <tbody>
               {b.sheet.map((r, i) => (
                 <tr key={i} className={i === 0 ? 'bg-[#f3f4f6] font-semibold' : ''}>
-                  {r.map((c, j) => (
-                    <td key={j} className={`border border-[#e5e7eb] px-2 py-1.5 ${badCells.has(`${i}-${j}`) ? 'bg-[#fde8e8] font-semibold text-[#b91c1c]' : 'text-[#374151]'}`}>
-                      {c}
-                    </td>
-                  ))}
+                  {r.map((c, j) => {
+                    const Cell = i === 0 ? 'th' : 'td'
+                    return (
+                      <Cell key={j} scope={i === 0 ? 'col' : undefined} style={i === 0 ? { textAlign: 'inherit', fontWeight: 'inherit' } : undefined} className={`border border-[#e5e7eb] px-2 py-1.5 ${badCells.has(`${i}-${j}`) ? 'bg-[#fde8e8] font-semibold text-[#b91c1c]' : 'text-[#374151]'}`}>
+                        {c}
+                      </Cell>
+                    )
+                  })}
                 </tr>
               ))}
             </tbody>

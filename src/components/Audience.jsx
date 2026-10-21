@@ -5,7 +5,8 @@ import { EASE, Icon, Reveal, SplitWords } from './ui.jsx'
 function Steps({ steps }) {
   return (
     <ol className="relative mt-8 flex flex-col gap-4">
-      <motion.span
+      <motion.li
+        aria-hidden="true"
         className="bg-brand absolute bottom-4 left-[15px] top-4 w-0.5 origin-top rounded"
         initial={{ scaleY: 0 }}
         whileInView={{ scaleY: 1 }}

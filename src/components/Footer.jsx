@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="bg-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[2fr_1fr_1fr_1fr] md:px-8">
         <div>
-          <img src={logo} alt="Teamkers" className="h-7 w-auto" />
+          <img src={logo} alt="Teamkers" className="h-7 w-auto" width="671" height="96" loading="lazy" decoding="async" />
           <p className="mt-3 text-sm text-ink-500">{t.byline}</p>
         </div>
         <div>
@@ -42,7 +42,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl border-t border-line px-4 py-6 text-xs text-ink-400 md:px-8">{t.copyright}</div>
+      <div className="mx-auto max-w-6xl border-t border-line px-4 py-6 text-xs text-ink-500 md:px-8">{t.copyright}</div>
     </footer>
   )
 }

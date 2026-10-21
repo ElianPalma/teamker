@@ -22,8 +22,8 @@ export function Reveal({ children, delay = 0, y = 24, className = '', as = 'div'
   return (
     <Comp
       className={className}
-      initial={{ opacity: 0, y, filter: 'blur(6px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, amount }}
       transition={{ duration: 0.8, delay, ease: EASE }}
     >
@@ -32,9 +32,22 @@ export function Reveal({ children, delay = 0, y = 24, className = '', as = 'div'
   )
 }
 
-export function SplitWords({ text, className = '', delay = 0, stagger = 0.06, as = 'h2', wordClassName = '', highlightFrom = Infinity, highlightClassName = 'text-gradient' }) {
+export function SplitWords({ text, className = '', delay = 0, stagger = 0.06, as = 'h2', wordClassName = '', highlightFrom = Infinity, highlightClassName = 'text-gradient', instant = false }) {
   const Comp = motion[as]
   const words = text.split(' ')
+  if (instant) {
+    const Tag = as
+    return (
+      <Tag className={className} aria-label={text}>
+        {words.map((w, i) => (
+          <span key={i} className="inline-block overflow-hidden pb-[0.22em] -mb-[0.22em] align-bottom" aria-hidden="true">
+            <span className={`inline-block pb-[0.22em] -mb-[0.22em] ${wordClassName} ${i >= highlightFrom ? highlightClassName : ''}`}>{w}</span>
+            {i < words.length - 1 && ' '}
+          </span>
+        ))}
+      </Tag>
+    )
+  }
   return (
     <Comp
       className={className}

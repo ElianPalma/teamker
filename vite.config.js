@@ -1,12 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { viteSingleFile } from 'vite-plugin-singlefile'
 
+// Build normal (archivos separados y cacheables). El HTML de cada idioma lo genera scripts/prerender.js.
 export default defineConfig({
-  plugins: [react(), tailwindcss(), viteSingleFile()],
-  build: {
-    assetsInlineLimit: 100000000,
-    cssCodeSplit: false,
-  },
+  plugins: [react(), tailwindcss()],
 })

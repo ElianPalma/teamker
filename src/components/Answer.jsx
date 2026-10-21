@@ -176,7 +176,7 @@ export default function Answer() {
               style={{ opacity: screenOpacity, scale: screenScale, y: screenY, maxWidth: 'min(1060px, calc((100vh - 400px) * 2.05))' }}
             >
               <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_40px_100px_-40px_rgba(15,23,42,0.35)]">
-                <img src={screen} alt={t.answer.screenAlt} className="block w-full" width="1353" height="636" />
+                <img src={screen} alt={t.answer.screenAlt} className="block w-full" width="1353" height="636" loading="lazy" decoding="async" />
               </div>
             </motion.div>
           </div>
@@ -196,7 +196,7 @@ export default function Answer() {
           ))}
           <Reveal className="w-full max-w-xl">
             <div className="overflow-hidden rounded-2xl border border-line shadow-[0_30px_70px_-34px_rgba(15,23,42,0.4)]">
-              <img src={screen} alt="" className="block w-full" />
+              <img src={screen} alt="" className="block w-full" width="1353" height="636" loading="lazy" decoding="async" />
             </div>
           </Reveal>
         </div>

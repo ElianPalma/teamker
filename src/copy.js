@@ -21,17 +21,17 @@ export function detectLocale() {
   const param = new URLSearchParams(window.location.search).get('lang')
   const byParam = languages.find((l) => l.code === param)
   if (byParam) return byParam.locale
-  const byPath = languages.find((l) => l.code !== 'es' && window.location.pathname.startsWith(`/${l.code}`))
+  const path = window.location.pathname
+  const byPath = languages.find((l) => l.code !== 'es' && (path === `/${l.code}` || path.startsWith(`/${l.code}/`)))
   if (byPath) return byPath.locale
-  const nav = (window.navigator.language || '').toLowerCase()
-  if (nav.startsWith('pt')) return 'pt'
-  if (nav.startsWith('en')) return 'en'
-  if (nav === 'es-mx') return 'es-MX'
   return 'es-ES'
 }
 
+// Cada idioma tiene su propia URL (/, /mx/, /en/, /pt/) para que Google indexe cada versión.
+export function langPath(code) {
+  return code === 'es' ? '/' : `/${code}/`
+}
+
 export function langHref(code) {
-  const params = new URLSearchParams(window.location.search)
-  params.set('lang', code)
-  return `?${params.toString()}${window.location.hash}`
+  return langPath(code)
 }

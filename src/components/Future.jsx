@@ -22,6 +22,10 @@ export default function Future() {
           <motion.img
             src={mark}
             alt=""
+            width="450"
+            height="450"
+            loading="lazy"
+            decoding="async"
             className="relative h-36 w-36 md:h-52 md:w-52"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}

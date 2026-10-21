@@ -87,7 +87,7 @@ export default function Header() {
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8" aria-label={t.nav.main}>
           <a href="#inicio" aria-label={t.nav.home} className="shrink-0">
-            <img src={logo} alt="Teamkers" className="h-7 w-auto md:h-8" />
+            <img src={logo} alt="Teamkers" className="h-7 w-auto md:h-8" width="671" height="96" />
           </a>
           <div className="hidden items-center gap-1 md:flex">
             {sections.map((s) => (

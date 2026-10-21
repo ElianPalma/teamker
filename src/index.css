@@ -1,7 +1,7 @@
-@import '@fontsource/cabin/400.css';
-@import '@fontsource/cabin/500.css';
-@import '@fontsource/cabin/600.css';
-@import '@fontsource/cabin/700.css';
+@import '@fontsource/cabin/latin-400.css';
+@import '@fontsource/cabin/latin-500.css';
+@import '@fontsource/cabin/latin-600.css';
+@import '@fontsource/cabin/latin-700.css';
 @import 'tailwindcss';
 
 @theme {

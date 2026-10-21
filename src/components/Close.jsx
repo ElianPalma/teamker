@@ -26,7 +26,7 @@ export default function Close() {
       <div className="blob drift-b -right-20 bottom-0 h-96 w-96" style={{ background: 'rgba(69,196,249,0.55)' }} />
       <div className="relative mx-auto max-w-4xl px-4 md:px-8">
         <Reveal>
-          <img src={logoWhite} alt="Teamkers" className="mx-auto h-8 w-auto md:h-10" />
+          <img src={logoWhite} alt="Teamkers" className="mx-auto h-8 w-auto md:h-10" width="670" height="96" loading="lazy" decoding="async" />
         </Reveal>
         <SplitWords text={t.title} delay={0.1} className="mt-10 text-[clamp(3rem,9vw,6.5rem)] font-bold leading-[0.98] tracking-[-0.04em]" />
         <Reveal delay={0.2}>
