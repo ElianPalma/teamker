@@ -37,3 +37,4 @@ Se elige con `?lang=`: `es` (España), `mx` (México, mismo texto que España), 
 - Rellenar los huecos marcados como `[XX]` (cifras de AIT, cita y autor) en los tres ficheros de idioma. Se ven en la página con borde naranja discontinuo.
 - Poner el número de WhatsApp, el email y el teléfono en `src/config.js`. Mientras estén vacíos, los botones llevan a la sección de contacto.
 - Las dos capturas de la app (`src/assets/hero.webp` y `src/assets/screen-ausencias.webp`) están en español en todos los idiomas.
+# teamker
